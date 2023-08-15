@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\{GrupoController, PublicadorController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/publicador', [PublicadorController::class, 'index'])->name('publicador.index');
+
+Route::get('/publicador/create', [PublicadorController::class, 'create'])->name('publicador.create');
+
+Route::post('/publicador', [PublicadorController::class, 'store'])->name('publicador.store');
+
+Route::get('/publicador/{id}', [PublicadorController::class, 'show'])->name('publicador.show');
+
+Route::get('/publicador/{id}/edit', [PublicadorController::class, 'edit'])->name('publicador.edit');
+
+Route::put('/publicador/{id}', [PublicadorController::class, 'update'])->name('publicador.update');
+
+Route::delete('publicador/{id}', [PublicadorController::class, 'destroy'])->name('publicador.destroy');
